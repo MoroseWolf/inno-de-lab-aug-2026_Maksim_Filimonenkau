@@ -1,15 +1,14 @@
-SELECT 
-    c.first_name, 
-    c.last_name, 
-    o.amount 
+SELECT
+    c.first_name,
+    c.last_name,
+    o.amount
 FROM
     customers AS c
-JOIN 
-    orders AS o
-ON 
-    c.customer_id = O.customer_id 
-WHERE   
-    o.amount = (SELECT 
-                    MAX(amount)
-                    FROM orders
-                )
+JOIN orders AS o ON
+    c.customer_id = O.customer_id
+WHERE
+    o.amount = (
+    SELECT
+        MAX(amount)
+    FROM
+        orders)

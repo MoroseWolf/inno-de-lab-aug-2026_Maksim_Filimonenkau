@@ -4,4 +4,4 @@ SELECT
 FROM 
     customers
 GROUP BY 
-    country 
+    country

@@ -1,5 +1,8 @@
 SELECT 
-    order_id, item, amount, customer_id
+    order_id,
+    item,
+    amount,
+    customer_id
 FROM 
     orders
 WHERE 

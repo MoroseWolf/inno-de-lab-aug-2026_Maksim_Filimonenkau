@@ -1,5 +1,8 @@
 SELECT
-    c.first_name, c.last_name, o.item, o.amount
+    c.first_name,
+    c.last_name,
+    o.item,
+    o.amount
 FROM 
     customers AS c
 JOIN orders AS o 
