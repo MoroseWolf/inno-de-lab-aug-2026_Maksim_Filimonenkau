@@ -46,7 +46,7 @@ FROM
 WHERE
     concat(FirstName, ' ', LastName) = 'Eve Davis'
 
--- Задание 6: Проверить все изменения, используя SELECT * FROM Employees
+-- Задание 6: Проверить все изменения, используя SELECT * FROM Employees.
 SELECT
     *
 FROM
