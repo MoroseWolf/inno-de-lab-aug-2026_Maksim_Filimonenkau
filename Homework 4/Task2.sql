@@ -10,23 +10,24 @@ ALTER TABLE Employees
 ADD Email VARCHAR(100);
 
 -- Задание 3: Заполнить столбец Email для всех сотрудников
-update
+UPDATE
 	Employees
-set
-	email = case
+SET
+	email = CASE
 		employeeid
-        when 1 then 'alice.sm@mail.com'
-		when 2 then 'bob.joh@mail.com'
-		when 3 then 'charlie.br@mail.com'
-		when 4 then 'diana.pr@mail.com'
-		when 6 then 'dima.fil@mail.ru'
-		when 7 then 'kris.Yli@mail.ru'
-	end
-where
-	employeeid in (1, 2, 3, 4, 6, 7)
-    
+        WHEN 1 THEN 'alice.sm@mail.com'
+		WHEN 2 THEN 'bob.joh@mail.com'
+		WHEN 3 THEN 'charlie.br@mail.com'
+		WHEN 4 THEN 'diana.pr@mail.com'
+		WHEN 6 THEN 'dima.fil@mail.ru'
+		WHEN 7 THEN 'kris.Yli@mail.ru'
+	END
+WHERE
+	employeeid IN (1, 2, 3, 4, 6, 7)
+
 -- Задание 4: Добавить ограничение UNIQUE к столбцу Email в таблице
 ALTER TABLE Employees 
 ADD CONSTRAINT UQ_Email UNIQUE (Email)
-
+	
 -- Задание 5: Переименовать столбец Location
+ALTER TABLE Departments RENAME COLUMN "Location" TO OfficeLocation
