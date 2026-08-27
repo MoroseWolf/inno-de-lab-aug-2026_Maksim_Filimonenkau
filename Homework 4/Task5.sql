@@ -6,7 +6,7 @@ FUNCTION CalculateAnnualBonus(
 employee_id INTEGER,
 salary numeric
 )
-RETURNS integer
+RETURNS numeric
 LANGUAGE PLpgSQL
 AS $$
 BEGIN
@@ -35,7 +35,7 @@ SELECT
 FROM
 	employees
 WHERE
-	department = 'Senior IT';
+	department = 'IT';
 
 -- Задание 4: Выбрать данные из вашего представления IT_Department_View.
 SELECT * FROM IT_Department_View
