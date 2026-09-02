@@ -14,6 +14,14 @@ db_config = {
     }
 }
 
+# Задача 4: Аудит прав доступа и дедупликация
+# Список ролей, переданный в запросе на авторизацию (содержит повторы)
+requested_roles = ["guest", "developer", "guest", "admin",
+                   "developer", "guest"]
+# Набор обязательных ролей для выполнения административных функций
+required_admin_roles = {"admin", "security_officer",
+                        "audit_manager"}
+
 
 def parse_task_1(user_record):
     raw_parts = user_record.split(";")
@@ -45,6 +53,17 @@ def parse_dict_task_3(config):
     return config
 
 
+def audit_task_4(roles, admin_roles):
+    roles_set = set(roles)
+    common_roles = roles_set.intersection(admin_roles)
+    difference_roles = admin_roles.difference(roles_set)
+    find_flag = False
+    if "security_officer" in roles_set:
+        find_flag = True
+
+    return roles_set, common_roles, difference_roles,  find_flag
+
+
 print("Задание 1:")
 task_1 = parse_task_1(raw_user_record)
 print(f"Нормализованная запись: {task_1}\n")
@@ -65,3 +84,11 @@ for key, value in task_3["connection"].items():
     if key == "ssl_mode":
         continue
     print(f"* {key}: {value}")
+
+print("\nЗадание 4:")
+unique_set, common_set, difference_set, flag = audit_task_4(
+    requested_roles, required_admin_roles)
+print(f"""Уникальные запрошенные роли: {unique_set} 
+Общие административные роли: {common_set} 
+Недостающие административные роли: {difference_set} 
+Наличие роли security_officer в запросе: {flag}\n""")
