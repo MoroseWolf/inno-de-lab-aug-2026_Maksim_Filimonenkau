@@ -45,16 +45,19 @@ def parse_dict_task_3(config):
     return config
 
 
+print("Задание 1:")
 task_1 = parse_task_1(raw_user_record)
-print(task_1)
+print(f"Нормализованная запись: {task_1}\n")
 
+print("Задание 2:")
 task_2 = [
     int(pair.split(":")[1])
     for pair in raw_transactions
     if pair.split(":")[0] == "SUCCESS" and int(pair.split(":")[1]) > 0
 ]
-print(task_2)
+print(f"Очищенные транзакции: {task_2}\n")
 
+print("Задание 3:")
 task_3 = parse_dict_task_3(db_config)
 print(
     f"SSL Mode: {task_3["connection"]["ssl_mode"]}\nПараметры соединения:")
